@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainapp'
+    'mainapp',
+    'authentication',
+    'cart',
+    'orders',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -117,8 +121,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR /"static"
+]
+
+# media files --> User uploaded media
+MEDIA_ROOT = BASE_DIR/"media"
+MEDIA_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+# LETS US SET UP THE AUTHENTICATION URLs
+
+LOGIN_URL = 'SIGNIN'
+LOGIN_REDIRECT_URL = 'homepage'
+LOGOUT_REDIRECT_URL = 'homepage'

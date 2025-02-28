@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    yshop | Log in 
+ {% endblock %}
+ {% block content %}
+ <div class="form-div">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+
+        <button class="btn btn_secondary">Log in </button>
+    </form>
+ </div>
+ {% endblock %}

@@ -21,4 +21,4 @@ class Product(models.Model):# providing the object attribute for the Product
    # in the specified media server subfolder in htis case products rest of config is in settings.py
   pic = models.ImageField(upload_to ="product/", null = True)
   def __str__(self):
-    return f"product : (self.name)"   # this will print out the name which helps me debug easier 
+    return f"product : {self.name}"   # this will print out the name which helps me debug easier 
