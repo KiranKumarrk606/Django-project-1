@@ -139,6 +139,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # LETS US SET UP THE AUTHENTICATION URLs
 
-LOGIN_URL = 'SIGNIN'
+LOGIN_URL = 'signin'
 LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL = 'homepage'
+
+
+#Razorpay configs
+
+RAZORPAY_KEY_ID="rzp_test_uk4VyES6ccKvZz"
+RAZORPAY_KEY_SECRET="O2uhElBvT5rCsMlgY5jq1EcB"
+
+CSRF_TRUSTED_ORIGINS=[
+
+     'https://api.razorpay.com',
+]
+
+TIME_ZONE = 'Asia/Kolkata'  # Change to your local time zone
+USE_TZ = True

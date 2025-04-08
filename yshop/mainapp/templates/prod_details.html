@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block title %}
-product Details page
+    Product Details page
 {% endblock %}
 {% block content %}
-<div class="container_fluid">
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <div class="img">
                 {% if prod.pic %}
-                <img src="" alt="">
+                <img src="{{ prod.pic.url }}"  alt="">
                 {% else %}
-                product has no picture...
+                Product has no picture...
                 {% endif %}
 
             </div>
@@ -26,9 +26,21 @@ product Details page
                 <span>
                     &#8377; {{ prod.price }}
                 </span>
-                <button class="btn btn-primary">
-                    Add to cart
-                </button>
+                
+                {% if user.is_staff %}
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'edit_prod' prod.id %}" class="btn btn-outline-success">Edit Product</a>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'del_prod' prod.id %}" class="btn btn-outline-danger">Delete Product</a>
+                    </div>
+                </div>
+                {% else %}
+                <a href = "{% url 'add_to_cart' prod.id %}" class="btn btn-primary">
+                    Add to Cart
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>

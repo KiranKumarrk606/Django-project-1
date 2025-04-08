@@ -63,14 +63,22 @@
             <td>
                 <a href="{% url 'del_cart' item.id %}" class="btn btn-danger">Remove from Cart</a>
             </td>
+
         </tr>
         {% endfor %}
+        <tr>
+            <th colspan="4" class="text-center" id="Total">TOTAL</th>
+            <td class="bg-secondary" id="Total_price" style="background-color: none;"><strong>Rs.<span
+                        id="overall-total">{{ total_price }}</span></strong></td>
+            <td><a href="{% url 'create_order' %}" class="btn btn-primary"
+                    style="background-color:white; border:none; color:black;">Place Your Order</a></td>
+        </tr>
     </tbody>
     <p><strong>Total: Rs.<span id="overall-total">{{ total_price }}</span></strong></p>
 </table>
 
 {% else %}
-Cart is Empty!!!
+<h5> CART IS EMPTY !!!</h5>
 {% endif %}
 
 <a href="{% url 'productpage' %}" class="text-center">Shop More</a>

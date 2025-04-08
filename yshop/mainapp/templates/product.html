@@ -1,29 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content  %} <!-- Instructing the template to load the static files-->
+{% block content  %} 
 
-<!-- The django template code to show all products in the page starts here -->
 
-<div class="card-group">
+<div class="product-grid w-80" id="card-collection">
+
   {% for product in prods %}
-  <div class="card" style="width: 18rem;">
-    {% if product.pic %}
-    <img src="{{ product.pic.url }}" class="card-img-top" alt="...">
-    {% else %}
-    no picture
-    {% endif %}
-    <div class="card-body">
-      <a href="{% url 'prod_details' product.id %}">
-        <h5 class="card-title">{{ product.name }}</h5>
-      </a>
-    
-      <p class="card-text">{{ product.desc }}</p>
-      <p class="card-text">{{ product.Price }}</p>
-      <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary" id="button">Add to cart</a>
+  <div class="card shadow-sm" >
+    <div class="card-img">
+      <img class="" src="{{product.pic.url}}" alt="">
     </div>
+    <div class="row card-body">
+      <a href="{% url 'prod_details'  product.id  %}"><h6>{{product.name}}</h6></a> 
+      <span>Rs. {{product.price}}</span>
+      <a href="{% url 'add_to_cart' product.pk %}" class="btn">
+        <button class="button " >Add To Cart</button></a>
+    </div>
+
   </div>
   {% endfor %}
 </div>
-<!-- Django template code ends here -->
 
 {% endblock %}
